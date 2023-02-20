@@ -5,6 +5,7 @@
 #include <mutex>
 #include <thread>
 #include <INode.h>
+#include <Input.h>
 
 namespace Engine {
 	class Controller
@@ -24,20 +25,19 @@ namespace Engine {
 			void removeFromInputProcess(INode*);
 
 			void addToQueueFree(INode*);
-			void excuteQueueFree();
+			void executeQueueFree();
 
 			void process();
-			void input(std::string& name, size_t key, bool pressed);
-			void cursor(double xMov, double yMov);
+			void input(Input::Input& input);
 
 			
-			static Controller* getInstance();
+			static Controller* instance();
 		private:
             static Controller* controller_;
             Controller();
-			std::set<INode*> processEntities;
-			std::set<INode*> cursorProcess;
-			std::set<INode*> inputProcess;
+			std::set<INode*> processNodes;
+			std::set<INode*> cursorProcessNodes;
+			std::set<INode*> inputProcessNodes;
 
 			std::vector<INode*> queueFree;
 

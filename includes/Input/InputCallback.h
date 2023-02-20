@@ -1,4 +1,9 @@
 #pragma once
+#include <Controller.h>
+#include <InputMap.h>
+#include <InputControl.h>
+#include <Input.h>
+
 
 namespace Input{
     class InputCallback{

@@ -9,7 +9,7 @@ namespace Input{
             void operator=(const InputControl &) = delete;
             static InputControl* instance();
 
-            bool isKeyPressed(std::string& name);
+            bool isKeyPressed(std::string name);
 			bool* getKeys();
 
         private:

@@ -4,15 +4,15 @@
 namespace Input{
     class Input{
         public:
-            Input(std::string, size_t,bool);
+            Input(std::string, int,bool);
             std::string& getName();
-            size_t getKey();
+            int getKey();
             bool isPressed();
             bool isReleased();
             
         private:
             std::string name;
-            size_t key;
+            int key;
             bool pressed;
     };
 }

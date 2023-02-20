@@ -1,13 +1,16 @@
 #include <InputMap.h>
 Input::InputMap* Input::InputMap::_inputMap = nullptr;
-
+Input::InputMap::InputMap(){
+    configureKey("exit", GLFW_KEY_ESCAPE);
+    configureKey("jump", GLFW_KEY_W);
+};
 Input::InputMap* Input::InputMap::instance(){
     if(_inputMap == nullptr){
         _inputMap = new Input::InputMap();
     }
     return _inputMap;
 }
-std::string& Input::InputMap::getName(const size_t key){
+std::string& Input::InputMap::getName(int key){
     return names[key];
 }
 
@@ -16,6 +19,6 @@ void Input::InputMap::configureKey(std::string name, size_t key){
     keys[name] = key;
 }
 
-size_t Input::InputMap::getKey(std::string& name){
+int Input::InputMap::getKey(std::string& name){
     return keys[name];
 }

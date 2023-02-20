@@ -1,6 +1,8 @@
 #include <InputControl.h>
 Input::InputControl* Input::InputControl::inputControl_ = nullptr;
+Input::InputControl::InputControl(){
 
+};
 Input::InputControl* Input::InputControl::instance(){
     if(inputControl_ == nullptr){
         inputControl_ = new InputControl();
@@ -8,7 +10,7 @@ Input::InputControl* Input::InputControl::instance(){
     return inputControl_;
 }
 
-bool Input::InputControl::isKeyPressed(std::string& name){
+bool Input::InputControl::isKeyPressed(std::string name){
     return keys[Input::InputMap::instance()->getKey(name)];
 }
 
